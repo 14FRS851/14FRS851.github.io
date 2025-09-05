@@ -1,0 +1,9 @@
+   title: Mon Blog
+   description: Un blog avec des diagrammes PlantUML
+   plugins:
+     - jekyll-spaceship
+
+   spaceship:
+     plantuml-processor:
+       mode: pre-fetch
+       src: http://www.plantuml.com/plantuml/svg/
