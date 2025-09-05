@@ -8,6 +8,10 @@ on:
 jobs:
   jekyll:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read  # Nécessaire pour lire le contenu du dépôt
+      pages: write   # Nécessaire pour déployer sur GitHub Pages
+      id-token: write # Nécessaire pour l'authentification OIDC
     steps:
       - uses: actions/checkout@v4
       - uses: ruby/setup-ruby@v1
