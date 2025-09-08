@@ -1,6 +1,7 @@
 title: "Mon Blog PlantUML"
 description: "Blog avec rendu UML et GitHub Pages"
-theme: jekyll-theme-spacechip
+
+remote_theme: sharadcodes/jekyll-theme-spacechip
 
 plugins:
   - jekyll-plantuml
