@@ -1,6 +1,5 @@
 source "https://rubygems.org"
 
 gem "jekyll"
-group :jekyll_plugins do
-  gem "jekyll-spaceship"
-end
+gem "jekyll-theme-spacechip"
+gem "jekyll-plantuml"
