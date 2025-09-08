@@ -4,3 +4,4 @@ theme: jekyll-theme-spacechip
 
 plugins:
   - jekyll-plantuml
+  - jekyll-spaceship
