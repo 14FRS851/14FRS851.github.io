@@ -4,4 +4,4 @@ theme: jekyll-theme-spacechip
 
 plugins:
   - jekyll-plantuml
-  - jekyll-spaceship
+  - jekyll-remote-theme
