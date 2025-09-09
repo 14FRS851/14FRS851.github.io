@@ -3,7 +3,7 @@ name: Build and Deploy Jekyll site to GitHub Pages
 on:
   push:
     branches:
-      - main   # ou 'master' si ta branche principale s'appelle ainsi
+      - main   # ou 'master'
 
 jobs:
   build:
@@ -13,20 +13,25 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y default-jre graphviz
+
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 3.1   # GitHub Pages supporte Ruby 3.x
+          ruby-version: 3.1
           bundler-cache: true
 
-      - name: Install dependencies
+      - name: Install gems
         run: bundle install
 
       - name: Build site with Jekyll
         run: bundle exec jekyll build --trace
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3   # ✅ version corrigée
+        uses: actions/upload-pages-artifact@v3
         with:
           path: ./_site
 
@@ -44,4 +49,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4   # ✅ passe aussi à v4 pour être tranquille
+        uses: actions/deploy-pages@v4
