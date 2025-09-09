@@ -3,7 +3,7 @@ name: Build and Deploy Jekyll site to GitHub Pages
 on:
   push:
     branches:
-      - main   # ou 'master' selon la branche de ton dépôt
+      - main   # ou 'master' si ta branche principale s'appelle ainsi
 
 jobs:
   build:
@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
@@ -20,14 +20,13 @@ jobs:
           bundler-cache: true
 
       - name: Install dependencies
-        run: |
-          bundle install
+        run: bundle install
 
       - name: Build site with Jekyll
         run: bundle exec jekyll build --trace
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2
+        uses: actions/upload-pages-artifact@v3   # ✅ version corrigée
         with:
           path: ./_site
 
@@ -45,4 +44,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v2
+        uses: actions/deploy-pages@v4   # ✅ passe aussi à v4 pour être tranquille
